@@ -1,0 +1,138 @@
+# set to yes if you want Conky to be forked in the background
+background yes
+
+# X font when Xft is disabled, you can pick one with program xfontsel
+#font 5x7
+#font 6x10
+#font 7x13
+#font 8x13
+#font 9x15
+#font *mintsmild.se*
+#font -*-*-*-*-*-*-34-*-*-*-*-*-*-*
+
+# Use Xft?
+use_xft yes
+
+# Xft font when Xft is enabled
+xftfont Bitstream Roboto:size=9
+
+# Text alpha when using Xft
+xftalpha 0.1
+
+# Update interval in seconds
+update_interval 1.0
+
+# This is the number of times Conky will update before quitting.
+# Set to zero to run forever.
+total_run_times 0
+
+# Create own window instead of using desktop (required in nautilus)
+own_window yes
+own_window_type normal
+own_window_transparent yes
+own_window_hints undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+
+# Minimum size of text area
+minimum_size 300 0
+maximum_width 300
+
+# Draw shades?
+draw_shades no
+
+# Draw outlines?
+draw_outline no
+
+# Draw borders around text
+draw_borders no
+draw_graph_borders yes
+
+# Stippled borders?
+stippled_borders 8
+
+# border margins
+border_margin 4
+
+# border width
+border_width 1
+
+# Default colors and also border colors
+default_color white
+default_shade_color black
+default_outline_color white
+
+# own window options
+own_window		yes
+own_window_transparent	yes
+own_window_type		override
+own_window_hints	undecorated,below,sticky,skip_taskbar,skip_pager
+
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+
+# Gap between borders of screen and text
+# same thing as passing -x at command line
+gap_x 10
+gap_y 15
+
+# Subtract file system buffers from used memory?
+no_buffers yes
+
+# set to yes if you want all text to be in uppercase
+uppercase no
+
+# number of cpu samples to average
+# set to 1 to disable averaging
+cpu_avg_samples 2
+
+# number of net samples to average
+# set to 1 to disable averaging
+net_avg_samples 2
+
+# Force UTF8? note that UTF8 support required XFT
+override_utf8_locale yes
+
+# Add spaces to keep things from moving about?  This only affects certain objects.
+use_spacer right
+
+# colours
+color1 white
+# light blue
+color2 6892C6
+# orange
+#E77320
+color3 FC8820
+# green
+color4 78BF39
+# red
+color5 CC0000
+
+text_buffer_size 2048
+
+# variable is given either in format $variable or in ${variable}. Latter
+# allows characters right after the variable and must be used in network
+# stuff because of an argument
+
+# stuff after 'TEXT' will be formatted on screen
+
+TEXT
+
+
+OS: ${alignr}Ubuntu Linux 13.04 
+Kernel: $alignr$sysname $kernel ($machine)
+Uptime: $alignr$uptime
+Processes: ${alignr}$processes (${color light blue}$running_processes fut${color})
+
+${color}${font Roboto:style=Bold:pixelsize=12}PROCESSORS:${font Snap.se:size=8}
+${freq}MHz / ${acpitemp}C (${cpu cpu1}%) ${alignr}${freq}MHz / ${acpitemp}C (${cpu cpu2}%)
+${cpubar 5,120 cpu1} ${alignr}${cpubar 5,120 cpu2}
+${color light blue}${top name 1}${top cpu 1}% ${alignr}${color light blue}${top name 2}${top cpu 2}%
+
+${color}${font Roboto:style=Bold:pixelsize=12}MEMORY:${font Snap.se:size=8}
+$mem / $memmax ($memperc%) ${alignr}${color light blue}${top_mem name 1}${top_mem mem 1}%
+${color}${membar 5,120} ${alignr}${color}${top_mem name 2}${top_mem mem 2}%
