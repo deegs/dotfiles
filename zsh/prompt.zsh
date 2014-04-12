@@ -28,7 +28,7 @@ git_dirty() {
 
 git_prompt_info () {
  ref=$($git symbolic-ref HEAD 2>/dev/null) || return
-# echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
+ #echo "(%{\e[0;33m%}${ref#refs/heads/}%{\e[0m%})"
  echo "${ref#refs/heads/}"
 }
 
@@ -53,9 +53,6 @@ rb_prompt(){
 	  echo ""
   fi
 }
-my_name() {
-  whoami
-}
 directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
@@ -65,7 +62,7 @@ server_name(){
 }
 
 
-export PROMPT=$'\n$(my_name)%{$fg_bold[cyan]%}@%{$reset_color%}$(server_name) in $(directory_name) $(git_dirty)$(need_push)\n› '
+export PROMPT=$'\n%n%{$fg_bold[cyan]%}@%{$reset_color%}$(server_name) in $(directory_name) $(git_dirty)$(need_push)\n➦ '
 set_prompt () {
   #export RPROMPT="%{$fg_bold[cyan]%}$(todo)%{$reset_color%}"
 }
