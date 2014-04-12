@@ -1,6 +1,4 @@
 autoload colors && colors
-# cheers, @ehrenmurdick
-# http://github.com/ehrenmurdick/config/blob/master/zsh/prompt.zsh
 
 if (( $+commands[git] ))
 then
@@ -57,25 +55,19 @@ ruby_version() {
     echo "$(rvm-prompt | awk '{print $1}')"
   fi
 }
-
-rb_prompt() {
-  if ! [[ -z "$(ruby_version)" ]]
-  then
-    echo "%{$fg_bold[yellow]%}$(ruby_version)%{$reset_color%} "
-  else
-    echo ""
-  fi
+my_name() {
+  whoami
 }
-
-directory_name() {
+directory_name(){
   echo "%{$fg_bold[cyan]%}%1/%\/%{$reset_color%}"
 }
 
 server_name(){
-  echo "on %{$fg_bold[red]%}%m%{$reset_color%}"
+  echo "%{$fg_bold[red]%}%m%{$reset_color%}"
 }
 
-export PROMPT=$'\n$(rb_prompt) $(server_name) in $(directory_name) $(git_dirty)$(need_push)\n› '
+
+export PROMPT=$'\n$(my_name)%{$fg_bold[cyan]%}@%{$reset_color%}$(server_name) in $(directory_name) $(git_dirty)$(need_push)\n› '
 set_prompt () {
   export RPROMPT="%{$fg_bold[cyan]%}%{$reset_color%}"
 }
