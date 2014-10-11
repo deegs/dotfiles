@@ -1,8 +1,10 @@
 .DS_Store
-.svn
 *~
 *.swp
+<<<<<<< HEAD
 *.rbc
 
 .AppleDouble/
 
+=======
+>>>>>>> f5fbf5de3f5a6ecfc60814397014e13b24b398b9
